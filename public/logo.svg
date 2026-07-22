@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 71" width="213" height="71" role="img" aria-label="MyYanga">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6b0a0e"/>
+      <stop offset="55%" stop-color="#850713"/>
+      <stop offset="100%" stop-color="#4a040a"/>
+    </linearGradient>
+  </defs>
+  <rect width="213" height="71" fill="url(#bg)"/>
+  <text x="18" y="48" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#ffffff">My</text>
+  <text x="62" y="52" font-family="'Segoe Script', 'Brush Script MT', 'Apple Chancery', cursive" font-size="36" fill="#C9A227">Yanga</text>
+</svg>

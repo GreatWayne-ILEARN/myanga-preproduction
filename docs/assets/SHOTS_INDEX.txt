@@ -1,0 +1,16 @@
+myyanga-home.png
+myyanga-settings.png
+myyanga-settings-filled.png
+myyanga-virtualwear.png
+myyanga-discover.png
+myyanga-reels.png
+myyanga-smartsearch-results.png
+myyanga-blog.png
+myyanga-article.png
+myyanga-bag.png
+myyanga-pdp.png
+myyanga-login.png
+myyanga-admin.png
+myyanga-evetting.png
+myyanga-accesscontrol.png
+myyanga-monetization.png
