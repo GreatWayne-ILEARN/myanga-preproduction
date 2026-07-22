@@ -85,17 +85,16 @@ Deno.serve(async (req) => {
   }
 
   let summary = "";
-  const aiKey = Deno.env.get("ANTHROPIC_API_KEY");
+  const aiKey = Deno.env.get("OPENAI_API_KEY");
   if (aiKey && query) {
-    const r = await fetch("https://api.anthropic.com/v1/messages", {
+    const r = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "x-api-key": aiKey,
-        "anthropic-version": "2023-06-01",
+        Authorization: `Bearer ${aiKey}`,
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
+        model: "gpt-4o",
         max_tokens: 300,
         messages: [
           {
@@ -106,7 +105,7 @@ Deno.serve(async (req) => {
       }),
     });
     const d = await r.json();
-    summary = d?.content?.[0]?.text || "";
+    summary = d?.choices?.[0]?.message?.content || "";
   }
 
   return new Response(JSON.stringify({ garments: rows, decks, summary, count: rows.length }), { headers: cors });

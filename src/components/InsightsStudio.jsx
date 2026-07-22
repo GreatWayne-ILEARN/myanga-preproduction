@@ -134,7 +134,7 @@ export function InsightsStudio() {
         const styles = pack.metrics?.attributes?.styles?.[0];
         setAiOut(
           [
-            `Local insight (Testing — deploy ai-chat + ANTHROPIC_API_KEY for live AI).`,
+            `Local insight (Testing — deploy ai-chat + OPENAI_API_KEY for live AI).`,
             `· Scope: ${pack.brand_name} · ${pack.event_count} events / ${pack.window_days}d`,
             cols ? `· Leading colour signal: ${cols.key} (${cols.count})` : `· Colour signal: insufficient selects yet`,
             styles ? `· Leading style: ${styles.key} (${styles.count})` : `· Style signal: insufficient selects yet`,

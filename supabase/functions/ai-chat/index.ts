@@ -18,23 +18,22 @@ Deno.serve(async (req) => {
   const { data: userData } = await sb.auth.getUser();
   if (!userData.user) return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: cors });
 
-  const key = Deno.env.get("ANTHROPIC_API_KEY");
+  const key = Deno.env.get("OPENAI_API_KEY");
   const { prompt } = await req.json().catch(() => ({ prompt: "" }));
-  if (!key) return Response.json({ text: "AI unavailable (set ANTHROPIC_API_KEY)." }, { headers: cors });
+  if (!key) return Response.json({ text: "AI unavailable (set OPENAI_API_KEY)." }, { headers: cors });
 
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
+  const r = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-api-key": key,
-      "anthropic-version": "2023-06-01",
+      Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model: "gpt-4o",
       max_tokens: 500,
       messages: [{ role: "user", content: prompt || "Summarise platform analytics." }],
     }),
   });
   const d = await r.json();
-  return Response.json({ text: d?.content?.[0]?.text || "No summary." }, { headers: cors });
+  return Response.json({ text: d?.choices?.[0]?.message?.content || "No summary." }, { headers: cors });
 });
